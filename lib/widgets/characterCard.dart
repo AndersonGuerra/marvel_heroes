@@ -43,7 +43,11 @@ Widget characterCard(Character character) {
         Positioned(
           left: 10,
           top: 190,
-          child: Text(character.name, style: cardTitle),
+          child: Text(
+            character.name,
+            style: cardTitle,
+            overflow: TextOverflow.clip,
+          ),
         ),
       ],
     ),

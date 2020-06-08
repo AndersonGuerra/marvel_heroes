@@ -5,6 +5,7 @@ import 'package:marvel_heroes/services/api.dart';
 import 'package:marvel_heroes/styles/styles.dart';
 import 'package:marvel_heroes/widgets/TypeButton.dart';
 import 'package:marvel_heroes/widgets/characterCard.dart';
+import 'package:marvel_heroes/widgets/characterSection.dart';
 
 import 'details.dart';
 
@@ -72,141 +73,11 @@ class _HomeState extends State<Home> {
                   SizedBox(
                     height: 20,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Hérois",
-                        style: sectionTitle,
-                      ),
-                      Text("Ver tudo"),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 250,
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        physics: ClampingScrollPhysics(),
-                        itemCount: application.heroes.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (ctx, index) {
-                          return GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (ctx) => Details()));
-                            },
-                            child: characterCard(application.heroes[index]),
-                          );
-                        }),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Vilões",
-                        style: sectionTitle,
-                      ),
-                      Text("Ver tudo"),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 250,
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        physics: ClampingScrollPhysics(),
-                        itemCount: application.villains.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (ctx, index) {
-                          return GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (ctx) => Details()));
-                            },
-                            child: characterCard(application.villains[index]),
-                          );
-                        }),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Anti-hérois",
-                        style: sectionTitle,
-                      ),
-                      Text("Ver tudo"),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 250,
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        physics: ClampingScrollPhysics(),
-                        itemCount: application.antiHeroes.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (ctx, index) {
-                          return GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (ctx) => Details()));
-                            },
-                            child: characterCard(application.antiHeroes[index]),
-                          );
-                        }),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Alienígenas",
-                        style: sectionTitle,
-                      ),
-                      Text("Ver tudo"),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 250,
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        physics: ClampingScrollPhysics(),
-                        itemCount: application.aliens.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (ctx, index) {
-                          return GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (ctx) => Details()));
-                            },
-                            child: characterCard(application.aliens[index]),
-                          );
-                        }),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Humanos",
-                        style: sectionTitle,
-                      ),
-                      Text("Ver tudo"),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 250,
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        physics: ClampingScrollPhysics(),
-                        itemCount: application.humans.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (ctx, index) {
-                          return GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (ctx) => Details()));
-                            },
-                            child: characterCard(application.humans[index]),
-                          );
-                        }),
-                  )
+                  CharactersSection("Hérois", application.heroes),
+                  CharactersSection("Vilões", application.villains),
+                  CharactersSection("Anti-hérois", application.antiHeroes),
+                  CharactersSection("Alienígenas", application.aliens),
+                  CharactersSection("Humanos", application.humans),
                 ],
               ),
             ),

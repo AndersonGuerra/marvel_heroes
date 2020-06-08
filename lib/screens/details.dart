@@ -1,14 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:marvel_heroes/models/character.dart';
 import 'package:marvel_heroes/styles/styles.dart';
-import 'package:marvel_heroes/widgets/characterCard.dart';
+// import 'package:marvel_heroes/widgets/characterCard.dart';
 
 class Details extends StatefulWidget {
+  final Character character;
+
+  Details(this.character);
+
   @override
   _DetailsState createState() => _DetailsState();
 }
 
 class _DetailsState extends State<Details> {
+  String avatarUrl;
+
+  @override
+  void initState() {
+    super.initState();
+    avatarUrl =
+        "https://github.com/Lorenalgm/marvel-heroes/raw/master/assets${widget.character.imagePath.replaceFirst(".", "")}";
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,9 +40,7 @@ class _DetailsState extends State<Details> {
                     decoration: BoxDecoration(
                         color: Colors.transparent,
                         image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: NetworkImage(
-                                "https://github.com/Lorenalgm/marvel-heroes/raw/master/assets/chars/black-panther.png"))),
+                            fit: BoxFit.cover, image: NetworkImage(avatarUrl))),
                   ),
                   Container(
                     decoration: BoxDecoration(
@@ -51,11 +63,11 @@ class _DetailsState extends State<Details> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "T'Challa",
+                        widget.character.alterEgo,
                         style: profileSubtitle,
                       ),
                       Text(
-                        "Pantera Negra",
+                        widget.character.name,
                         style: profileTitle,
                       ),
                       Row(
@@ -68,7 +80,7 @@ class _DetailsState extends State<Details> {
                                 color: Colors.white,
                               ),
                               Text(
-                                "30 anos",
+                                widget.character.caracteristics.birth,
                                 style: caracteristic,
                               )
                             ],
@@ -78,7 +90,8 @@ class _DetailsState extends State<Details> {
                               SvgPicture.asset("assets/icons/weight.svg",
                                   color: Colors.white),
                               Text(
-                                "78kg",
+                                widget.character.caracteristics.weight.value
+                                    .toString(),
                                 style: caracteristic,
                               )
                             ],
@@ -88,7 +101,8 @@ class _DetailsState extends State<Details> {
                               SvgPicture.asset("assets/icons/height.svg",
                                   color: Colors.white),
                               Text(
-                                "1.80m",
+                                widget.character.caracteristics.height.value
+                                    .toString(),
                                 style: caracteristic,
                               )
                             ],
@@ -98,7 +112,7 @@ class _DetailsState extends State<Details> {
                               SvgPicture.asset("assets/icons/universe.svg",
                                   color: Colors.white),
                               Text(
-                                "Terra 616",
+                                widget.character.caracteristics.universe,
                                 style: caracteristic,
                               )
                             ],
@@ -114,7 +128,7 @@ class _DetailsState extends State<Details> {
             child: Padding(
               padding: EdgeInsets.only(left: 32, right: 32, top: 32),
               child: Text(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis, augue quis pharetra pellentesque, eros nisl sodales nisi, ut gravida odio ligula sit amet dui. Etiam eget aliquet justo, quis sollicitudin mauris. Cras dictum congue quam ac vestibulum. Pellentesque sed metus eget nunc luctus fringilla. Praesent id turpis vitae elit tincidunt ullamcorper et vitae dui. Vivamus pellentesque urna at erat condimentum aliquet. Duis ut urna sed mi ullamcorper tincidunt a ut lacus. Praesent a rutrum ex. Mauris malesuada tellus a ipsum suscipit, vel condimentum orci ultrices. Nunc varius aliquam ante. Aenean in orci eu eros interdum tincidunt ac non felis. Sed tempus non mauris ac dictum. Nulla facilisi. Nam sit amet volutpat nibh. Nunc est massa, egestas eu est at, rhoncus accumsan erat. Mauris posuere nibh orci, eget porta orci eleifend ac. Curabitur malesuada suscipit suscipit. Aliquam augue lorem, sollicitudin eu ligula vel, viverra consectetur odio. Fusce vestibulum malesuada tincidunt. Phasellus et tortor vestibulum, malesuada nulla sed, dignissim sapien. Sed quam tortor, ultrices nec sollicitudin ut, egestas non odio.",
+                widget.character.biography,
                 style: description,
               ),
             ),
