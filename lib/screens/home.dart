@@ -4,10 +4,7 @@ import 'package:marvel_heroes/models/application.dart';
 import 'package:marvel_heroes/services/api.dart';
 import 'package:marvel_heroes/styles/styles.dart';
 import 'package:marvel_heroes/widgets/TypeButton.dart';
-import 'package:marvel_heroes/widgets/characterCard.dart';
 import 'package:marvel_heroes/widgets/characterSection.dart';
-
-import 'details.dart';
 
 class Home extends StatefulWidget {
   @override

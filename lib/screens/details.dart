@@ -84,7 +84,7 @@ class _DetailsState extends State<Details> {
                                 color: Colors.white,
                               ),
                               Text(
-                                widget.character.caracteristics.birth,
+                                "${(2020 - int.parse(widget.character.caracteristics.birth))} anos",
                                 style: caracteristic,
                               )
                             ],
@@ -94,7 +94,7 @@ class _DetailsState extends State<Details> {
                               SvgPicture.asset("assets/icons/weight.svg",
                                   color: Colors.white),
                               Text(
-                                widget.character.caracteristics.weight.value
+                                "${widget.character.caracteristics.weight.value}kg"
                                     .toString(),
                                 style: caracteristic,
                               )
@@ -105,7 +105,7 @@ class _DetailsState extends State<Details> {
                               SvgPicture.asset("assets/icons/height.svg",
                                   color: Colors.white),
                               Text(
-                                widget.character.caracteristics.height.value
+                                "${widget.character.caracteristics.height.value}m"
                                     .toString(),
                                 style: caracteristic,
                               )
@@ -126,11 +126,11 @@ class _DetailsState extends State<Details> {
                     ],
                   ),
                 ),
-                preferredSize: Size.fromHeight(100)),
+                preferredSize: Size.fromHeight(116)),
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: EdgeInsets.only(left: 32, right: 32, top: 32),
+              padding: EdgeInsets.only(left: 32, right: 32, top: 16),
               child: Text(
                 widget.character.biography,
                 style: description,

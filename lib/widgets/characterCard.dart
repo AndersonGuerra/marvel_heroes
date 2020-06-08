@@ -38,18 +38,26 @@ Widget characterCard(Character character) {
         ),
         Positioned(
             left: 10,
-            top: 170,
+            top: 150,
             child: Text(
               character.alterEgo,
               style: cardSubtitle,
             )),
         Positioned(
           left: 10,
-          top: 190,
-          child: Text(
-            character.name,
-            style: cardTitle,
-            overflow: TextOverflow.clip,
+          top: 170,
+          child: Container(
+            width: 100,
+            child: Row(
+              children: [
+                Flexible(
+                  child: Text(
+                    character.name,
+                    style: cardTitle,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],
