@@ -210,8 +210,9 @@ class _DetailsState extends State<Details> {
                     itemCount: 5,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (ctx, index) {
-                      return characterCard(
-                          "https://github.com/Lorenalgm/marvel-heroes/raw/master/assets/chars/black-panther.png");
+                      return Text("teste");
+                      // return characterCard(
+                      //     "https://github.com/Lorenalgm/marvel-heroes/raw/master/assets/chars/black-panther.png");
                     }),
               ),
             ),

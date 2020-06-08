@@ -40,12 +40,10 @@ class _HomeState extends State<Home> {
                   ),
                   onPressed: () {}),
               actions: [
-                IconButton(
-                    icon: Icon(
-                      Icons.search,
-                      color: Colors.black,
-                    ),
-                    onPressed: () {})
+                Padding(
+                  padding: EdgeInsets.only(right: 16.0),
+                  child: SvgPicture.asset("assets/icons/search.svg"),
+                )
               ],
             ),
             body: SingleChildScrollView(
@@ -89,7 +87,7 @@ class _HomeState extends State<Home> {
                     child: ListView.builder(
                         shrinkWrap: true,
                         physics: ClampingScrollPhysics(),
-                        itemCount: 5,
+                        itemCount: application.heroes.length,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (ctx, index) {
                           return GestureDetector(
@@ -97,8 +95,115 @@ class _HomeState extends State<Home> {
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (ctx) => Details()));
                             },
-                            child: characterCard(
-                                "https://github.com/Lorenalgm/marvel-heroes/raw/master/assets/chars/black-panther.png"),
+                            child: characterCard(application.heroes[index]),
+                          );
+                        }),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Vilões",
+                        style: sectionTitle,
+                      ),
+                      Text("Ver tudo"),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 250,
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        physics: ClampingScrollPhysics(),
+                        itemCount: application.villains.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (ctx, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (ctx) => Details()));
+                            },
+                            child: characterCard(application.villains[index]),
+                          );
+                        }),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Anti-hérois",
+                        style: sectionTitle,
+                      ),
+                      Text("Ver tudo"),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 250,
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        physics: ClampingScrollPhysics(),
+                        itemCount: application.antiHeroes.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (ctx, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (ctx) => Details()));
+                            },
+                            child: characterCard(application.antiHeroes[index]),
+                          );
+                        }),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Alienígenas",
+                        style: sectionTitle,
+                      ),
+                      Text("Ver tudo"),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 250,
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        physics: ClampingScrollPhysics(),
+                        itemCount: application.aliens.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (ctx, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (ctx) => Details()));
+                            },
+                            child: characterCard(application.aliens[index]),
+                          );
+                        }),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Humanos",
+                        style: sectionTitle,
+                      ),
+                      Text("Ver tudo"),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 250,
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        physics: ClampingScrollPhysics(),
+                        itemCount: application.humans.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (ctx, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (ctx) => Details()));
+                            },
+                            child: characterCard(application.humans[index]),
                           );
                         }),
                   )

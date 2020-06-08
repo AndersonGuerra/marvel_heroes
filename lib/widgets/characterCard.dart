@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:marvel_heroes/models/character.dart';
 import 'package:marvel_heroes/styles/styles.dart';
 
-Widget characterCard(String avatarUrl) {
+Widget characterCard(Character character) {
+  // "https://github.com/Lorenalgm/marvel-heroes/raw/master/assets/chars/black-panther.png"
+  String avatarUrl =
+      "https://github.com/Lorenalgm/marvel-heroes/raw/master/assets${character.imagePath.replaceFirst(".", "")}";
   return Padding(
     padding: EdgeInsets.all(8.0),
     child: Stack(
@@ -33,13 +37,13 @@ Widget characterCard(String avatarUrl) {
             left: 10,
             top: 170,
             child: Text(
-              "T'Challa",
+              character.alterEgo,
               style: cardSubtitle,
             )),
         Positioned(
           left: 10,
           top: 190,
-          child: Text("Pantera Negra", style: cardTitle),
+          child: Text(character.name, style: cardTitle),
         ),
       ],
     ),
