@@ -35,12 +35,16 @@ class _DetailsState extends State<Details> {
             flexibleSpace: FlexibleSpaceBar(
               background: Stack(
                 children: [
-                  Container(
-                    height: 500,
-                    decoration: BoxDecoration(
-                        color: Colors.transparent,
-                        image: DecorationImage(
-                            fit: BoxFit.cover, image: NetworkImage(avatarUrl))),
+                  Hero(
+                    tag: widget.character.name,
+                    child: Container(
+                      height: 500,
+                      decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(avatarUrl))),
+                    ),
                   ),
                   Container(
                     decoration: BoxDecoration(

@@ -45,35 +45,3 @@ class CharactersSection extends StatelessWidget {
     );
   }
 }
-
-// List charactersSection(List<Character> characters) {
-//   return [
-//     Row(
-//       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//       children: [
-//         Text(
-//           "Humanos",
-//           style: sectionTitle,
-//         ),
-//         Text("Ver tudo"),
-//       ],
-//     ),
-//     SizedBox(
-//       height: 250,
-//       child: ListView.builder(
-//           shrinkWrap: true,
-//           physics: ClampingScrollPhysics(),
-//           itemCount: characters.length,
-//           scrollDirection: Axis.horizontal,
-//           itemBuilder: (ctx, index) {
-//             return GestureDetector(
-//               onTap: () {
-//                 Navigator.of(context).push(MaterialPageRoute(
-//                     builder: (ctx) => Details(characters[index])));
-//               },
-//               child: characterCard(characters[index]),
-//             );
-//           }),
-//     )
-//   ];
-// }

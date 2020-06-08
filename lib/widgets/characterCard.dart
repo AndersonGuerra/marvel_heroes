@@ -10,14 +10,17 @@ Widget characterCard(Character character) {
     padding: EdgeInsets.all(8.0),
     child: Stack(
       children: [
-        Container(
-          width: 150,
-          height: 250,
-          decoration: BoxDecoration(
-              color: Colors.transparent,
-              borderRadius: BorderRadius.all(Radius.circular(8.0)),
-              image: DecorationImage(
-                  fit: BoxFit.cover, image: NetworkImage(avatarUrl))),
+        Hero(
+          tag: character.name,
+          child: Container(
+            width: 150,
+            height: 250,
+            decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                image: DecorationImage(
+                    fit: BoxFit.cover, image: NetworkImage(avatarUrl))),
+          ),
         ),
         Container(
           width: 150,
