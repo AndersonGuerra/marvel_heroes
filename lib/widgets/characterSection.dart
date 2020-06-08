@@ -21,7 +21,10 @@ class CharactersSection extends StatelessWidget {
               sectionName,
               style: sectionTitle,
             ),
-            Text("Ver tudo"),
+            Text(
+              "Ver tudo",
+              style: TextStyle(color: Color(0xffB7B7C8)),
+            ),
           ],
         ),
         SizedBox(

@@ -7,10 +7,10 @@ TextStyle profileTitle = TextStyle(
     color: Colors.white);
 
 TextStyle homeTitle = TextStyle(
-  fontFamily: 'GilroyHeavy',
-  fontSize: 32,
-  fontWeight: FontWeight.w700,
-);
+    fontFamily: 'GilroyHeavy',
+    fontSize: 32,
+    fontWeight: FontWeight.w700,
+    color: Color(0xff313140));
 
 TextStyle cardTitle = TextStyle(
     fontFamily: 'GilroyHeavy',
@@ -20,6 +20,7 @@ TextStyle cardTitle = TextStyle(
 
 TextStyle sectionTitle = TextStyle(
   fontFamily: 'GilroyBold',
+  color: Color(0xffF2264B),
   fontSize: 18,
   fontWeight: FontWeight.w700,
 );
@@ -31,10 +32,10 @@ TextStyle profileSubtitle = TextStyle(
     color: Colors.white);
 
 TextStyle homeSubtitle = TextStyle(
-  fontFamily: 'GilroySemibold',
-  fontSize: 14,
-  fontWeight: FontWeight.w700,
-);
+    fontFamily: 'GilroySemibold',
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+    color: Color(0xffB7B7C8));
 
 TextStyle description = TextStyle(
     fontFamily: 'GilroyMedium',
