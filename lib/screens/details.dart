@@ -2,7 +2,50 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:marvel_heroes/models/character.dart';
 import 'package:marvel_heroes/styles/styles.dart';
+import 'package:marvel_heroes/widgets/movieCard.dart';
 // import 'package:marvel_heroes/widgets/characterCard.dart';
+
+Widget barGenerator(String habilidade, int total) {
+  double totalAdaptado = total * 0.4;
+  String text1 = '';
+  String text2 = '';
+  for (var i = 0; i < 40; i++) {
+    if (i < totalAdaptado) {
+      text1 += 'I ';
+    } else {
+      text2 += 'I ';
+    }
+  }
+  return Padding(
+    padding: EdgeInsets.only(bottom: 16.0, left: 32.0, right: 32.0),
+    child: Row(
+      children: [
+        Expanded(
+          child: Text(
+            habilidade,
+            style: ability,
+          ),
+        ),
+        Text(
+          text1,
+          style: TextStyle(
+              fontFamily: 'GilroyRegular',
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: Colors.white),
+        ),
+        Text(
+          text2,
+          style: TextStyle(
+              fontFamily: 'GilroyRegular',
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: Colors.grey),
+        )
+      ],
+    ),
+  );
+}
 
 class Details extends StatefulWidget {
   final Character character;
@@ -130,7 +173,7 @@ class _DetailsState extends State<Details> {
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: EdgeInsets.only(left: 32, right: 32, top: 16),
+              padding: EdgeInsets.only(left: 32, right: 32, top: 12),
               child: Text(
                 widget.character.biography,
                 style: description,
@@ -140,7 +183,7 @@ class _DetailsState extends State<Details> {
           SliverPadding(padding: EdgeInsets.all(8)),
           SliverToBoxAdapter(
             child: Padding(
-              padding: EdgeInsets.only(left: 32, right: 32),
+              padding: EdgeInsets.only(left: 32, right: 32, top: 16),
               child: Text(
                 "Habilidades",
                 style: TextStyle(
@@ -153,56 +196,12 @@ class _DetailsState extends State<Details> {
           SliverPadding(padding: EdgeInsets.all(8)),
           SliverList(
               delegate: SliverChildListDelegate([
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 32),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Habilidade", style: TextStyle(color: Colors.white)),
-                  Text("Barra", style: TextStyle(color: Colors.white))
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 32),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Habilidade", style: TextStyle(color: Colors.white)),
-                  Text("Barra", style: TextStyle(color: Colors.white))
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 32),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Habilidade", style: TextStyle(color: Colors.white)),
-                  Text("Barra", style: TextStyle(color: Colors.white))
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 32),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Habilidade", style: TextStyle(color: Colors.white)),
-                  Text("Barra", style: TextStyle(color: Colors.white))
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 32),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Habilidade", style: TextStyle(color: Colors.white)),
-                  Text("Barra", style: TextStyle(color: Colors.white))
-                ],
-              ),
-            ),
+            barGenerator("Força", widget.character.abilities.force),
+            barGenerator(
+                "Inteligência", widget.character.abilities.intelligence),
+            barGenerator("Agilidade", widget.character.abilities.agility),
+            barGenerator("Resistência", widget.character.abilities.endurance),
+            barGenerator("Velocidade", widget.character.abilities.velocity),
           ])),
           SliverToBoxAdapter(
             child: Padding(
@@ -225,12 +224,10 @@ class _DetailsState extends State<Details> {
                 child: ListView.builder(
                     shrinkWrap: true,
                     physics: ClampingScrollPhysics(),
-                    itemCount: 5,
+                    itemCount: widget.character.movies.length,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (ctx, index) {
-                      return Text("teste");
-                      // return characterCard(
-                      //     "https://github.com/Lorenalgm/marvel-heroes/raw/master/assets/chars/black-panther.png");
+                      return movieCard(widget.character.movies[index]);
                     }),
               ),
             ),
