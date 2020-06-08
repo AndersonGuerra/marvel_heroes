@@ -1,48 +1,43 @@
-import 'heroes.dart';
-import 'villains.dart';
-import 'aliens.dart';
-import 'antiheroes.dart';
-import 'humans.dart';
-
+import 'character.dart';
 class Application {
-  List<Heroes> heroes;
-  List<Villains> villains;
-  List<AntiHeroes> antiHeroes;
-  List<Aliens> aliens;
-  List<Humans> humans;
+  List<Character> heroes;
+  List<Character> villains;
+  List<Character> antiHeroes;
+  List<Character> aliens;
+  List<Character> humans;
 
   Application(
       {this.heroes, this.villains, this.antiHeroes, this.aliens, this.humans});
 
   Application.fromJson(Map<String, dynamic> json) {
     if (json['heroes'] != null) {
-      heroes = new List<Heroes>();
+      heroes = new List<Character>();
       json['heroes'].forEach((v) {
-        heroes.add(new Heroes.fromJson(v));
+        heroes.add(new Character.fromJson(v));
       });
     }
     if (json['villains'] != null) {
-      villains = new List<Villains>();
+      villains = new List<Character>();
       json['villains'].forEach((v) {
-        villains.add(new Villains.fromJson(v));
+        villains.add(new Character.fromJson(v));
       });
     }
     if (json['antiHeroes'] != null) {
-      antiHeroes = new List<AntiHeroes>();
+      antiHeroes = new List<Character>();
       json['antiHeroes'].forEach((v) {
-        antiHeroes.add(new AntiHeroes.fromJson(v));
+        antiHeroes.add(new Character.fromJson(v));
       });
     }
     if (json['aliens'] != null) {
-      aliens = new List<Aliens>();
+      aliens = new List<Character>();
       json['aliens'].forEach((v) {
-        aliens.add(new Aliens.fromJson(v));
+        aliens.add(new Character.fromJson(v));
       });
     }
     if (json['humans'] != null) {
-      humans = new List<Humans>();
+      humans = new List<Character>();
       json['humans'].forEach((v) {
-        humans.add(new Humans.fromJson(v));
+        humans.add(new Character.fromJson(v));
       });
     }
   }

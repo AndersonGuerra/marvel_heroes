@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:marvel_heroes/models/application.dart';
 import 'package:marvel_heroes/services/api.dart';
 import 'package:marvel_heroes/styles/styles.dart';
 import 'package:marvel_heroes/widgets/TypeButton.dart';
@@ -20,6 +21,8 @@ class _HomeState extends State<Home> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done &&
             snapshot.hasData) {
+          Application application = snapshot.data;
+
           return Scaffold(
             backgroundColor: Colors.white,
             appBar: AppBar(

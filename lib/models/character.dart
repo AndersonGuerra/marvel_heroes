@@ -1,4 +1,4 @@
-class Aliens {
+class Character {
   String name;
   String alterEgo;
   String imagePath;
@@ -7,7 +7,7 @@ class Aliens {
   Abilities abilities;
   List<String> movies;
 
-  Aliens(
+  Character(
       {this.name,
       this.alterEgo,
       this.imagePath,
@@ -16,7 +16,7 @@ class Aliens {
       this.abilities,
       this.movies});
 
-  Aliens.fromJson(Map<String, dynamic> json) {
+  Character.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     alterEgo = json['alterEgo'];
     imagePath = json['imagePath'];
