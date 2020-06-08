@@ -1,16 +1,18 @@
-# marvel_heroes
+# Marvel Heroes
 
-A new Flutter project.
+Um projeto do [DevChallenge](https://github.com/Lorenalgm/marvel-heroes).
+Feito com Flutter :D
 
-## Getting Started
+# Observações
 
-This project is a starting point for a Flutter application.
+As imagens estão sendo carregadas do repositório [do desafio](https://github.com/Lorenalgm/marvel-heroes/tree/master/assets) e elas são relativamente pesadas, então existe uma grande chance das imagens demorarem para carregar quando você executar o aplitativo.
 
-A few resources to get you started if this is your first Flutter project:
+## Tecnologias utilizadas
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+ - [Flutter](https://flutter.dev/)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Com o flutter instalado, basta executar:
+
+- flutter packages get
+- flutter run (caso já tenha um emulador ou dispositivo conectado)
+
