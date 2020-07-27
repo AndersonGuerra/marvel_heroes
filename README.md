@@ -3,7 +3,7 @@
 Um projeto do [DevChallenge](https://github.com/Lorenalgm/marvel-heroes).
 Feito com Flutter :D
 
-![Demonstração](demo.gif)
+![Demonstração](https://i.imgur.com/jZuKkuR.gif)
 
 ## Tecnologias utilizadas
 
