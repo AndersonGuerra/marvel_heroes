@@ -62,8 +62,7 @@ class _DetailsState extends State<Details> {
   @override
   void initState() {
     super.initState();
-    avatarUrl =
-        "https://github.com/Lorenalgm/marvel-heroes/raw/master/assets${widget.character.imagePath.replaceFirst(".", "")}";
+    avatarUrl = "assets${widget.character.imagePath.replaceFirst(".", "")}";
   }
 
   @override
@@ -85,8 +84,7 @@ class _DetailsState extends State<Details> {
                       decoration: BoxDecoration(
                           color: Colors.transparent,
                           image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(avatarUrl))),
+                              fit: BoxFit.cover, image: AssetImage(avatarUrl))),
                     ),
                   ),
                   Container(

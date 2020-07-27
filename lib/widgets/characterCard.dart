@@ -4,8 +4,7 @@ import 'package:marvel_heroes/styles/styles.dart';
 
 Widget characterCard(Character character) {
   // "https://github.com/Lorenalgm/marvel-heroes/raw/master/assets/chars/black-panther.png"
-  String avatarUrl =
-      "https://github.com/Lorenalgm/marvel-heroes/raw/master/assets${character.imagePath.replaceFirst(".", "")}";
+  String avatarUrl = "assets${character.imagePath.replaceFirst(".", "")}";
   return Padding(
     padding: EdgeInsets.all(8.0),
     child: Stack(
@@ -19,7 +18,7 @@ Widget characterCard(Character character) {
                 color: Colors.transparent,
                 borderRadius: BorderRadius.all(Radius.circular(8.0)),
                 image: DecorationImage(
-                    fit: BoxFit.cover, image: NetworkImage(avatarUrl))),
+                    fit: BoxFit.cover, image: AssetImage(avatarUrl))),
           ),
         ),
         Container(
